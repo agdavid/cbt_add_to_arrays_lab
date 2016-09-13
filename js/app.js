@@ -2,9 +2,10 @@ console.log("ready!");
 
 myList = []
 
+var numberItemsDiv = document.getElementById('numberItems')
+var listItemsDiv = document.getElementById('listItems')
+
 function addItem() {
-  var numberItemsDiv = document.getElementById('numberItems')
-  var listItemsDiv = document.getElementById('listItems')
 
   var newItem = document.getElementById('itemName').value;
 
@@ -22,4 +23,10 @@ function addItem() {
 };
 
 function listItems() {
+  listItemsDiv.innerHTML = '';
+  for( var i = 0; i < myList.length; i++) {
+    childDiv = document.createElement('div');
+    childDiv.innerHTML = "Item " + (i+1).toString() + " of " + myList.length.toString() + " is " + myList[i];
+    listItemsDiv.appendChild(childDiv);
+  }
 };
