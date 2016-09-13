@@ -13,20 +13,26 @@ function addItem() {
     myList.push(newItem);
   }
 
-  if (myList.length === 0) {
-    numberItemsDiv.innerHTML = myList.length.toString() + " items in the list";
-    listItemsDiv.innerHTML = "There are no items to show!";
-  } else {
-    numberItemsDiv.innerHTML = myList.length.toString() + " items in the list";
-    listItems();
-  }
+  listItems();
+
 };
 
 function listItems() {
-  listItemsDiv.innerHTML = '';
-  for( var i = 0; i < myList.length; i++) {
-    childDiv = document.createElement('div');
-    childDiv.innerHTML = "Item " + (i+1).toString() + " of " + myList.length.toString() + " is " + myList[i];
-    listItemsDiv.appendChild(childDiv);
-  }
+  if (myList.length === 0) {
+    
+    numberItemsDiv.innerHTML = myList.length.toString() + " items in the list";
+    listItemsDiv.innerHTML = "There are no items to show!";
+  
+  } else {
+  
+    numberItemsDiv.innerHTML = myList.length.toString() + " items in the list";
+    listItemsDiv.innerHTML = '';
+  
+    for( var i = 0; i < myList.length; i++) {
+      childDiv = document.createElement('div');
+      childDiv.innerHTML = "Item " + (i+1).toString() + " of " + myList.length.toString() + " is " + myList[i];
+      listItemsDiv.appendChild(childDiv);
+    }
+  
+  }  
 };
